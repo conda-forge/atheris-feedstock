@@ -1,0 +1,15 @@
+--- src/native/counters.cc	2022-02-16 21:51:51.572600146 -0600
++++ src/native/counters.cc	2022-02-16 21:52:32.656664797 -0600
+@@ -109,10 +109,10 @@
+     // virtual memory, which is cheap.
+     counters = static_cast<unsigned char*>(
+         mmap(nullptr, max_counters, PROT_READ | PROT_WRITE,
+-             MAP_ANONYMOUS | MAP_PRIVATE, -1, 0));
++             MAP_ANON | MAP_PRIVATE, -1, 0));
+     pctable = static_cast<PCTableEntry*>(
+         mmap(nullptr, max_counters * sizeof(PCTableEntry),
+-             PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0));
++             PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0));
+     if (counters == MAP_FAILED || pctable == MAP_FAILED) {
+       std::cerr << "Atheris internal error: Failed to mmap counters.\n";
+       exit(1);
