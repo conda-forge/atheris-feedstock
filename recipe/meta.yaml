@@ -7,6 +7,8 @@ package:
 source:
   url: https://pypi.io/packages/source/a/atheris/atheris-{{ version }}.tar.gz
   sha256: e1cdfb2ee8442fb32de5b04e5bb2c0ae29c3d48d46e81b8b0137e77a9326781d
+  patches:
+    - 000-osx-map-anon.patch  # [osx]
 
 build:
   number: 0
