@@ -10,8 +10,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<37 or win]
-  detect_binary_files_with_prefix: False  # [osx]
+  skip: true  # [py<37 or win or osx]
 
 requirements:
   build:
