@@ -1,4 +1,4 @@
-{% set version = "2.1.1" %}
+{% set version = "2.2.2" %}
 
 package:
   name: atheris
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/a/atheris/atheris-{{ version }}.tar.gz
-  sha256: c9050aff68e32f3843e0125c651c39dc2cdfbc8adfd1528036c1857ae23a955d
+  sha256: d06fdfe077d8188c5acdccb8d4cbb34a3fc2d6f84dbb7b807f523cc5f6e9b8a4
 
 build:
   number: 0
