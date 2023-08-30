@@ -23,10 +23,12 @@ requirements:
     - clangxx
     - compiler-rt_{{ target_platform }}
   host:
+    - libclang
     - pip
     - pybind11 >=2.5.0
     - python
   run:
+    - libclang
     - python
 
 test:
