@@ -1,6 +1,6 @@
-c_compiler_version:            # [linux or osx]
+c_compiler_version:
   - 11                         # [linux]
   - 12                         # [osx]
-cxx_compiler_version:          # [linux or linux]
+cxx_compiler_version:
   - 11                         # [linux]
   - 12                         # [osx]
