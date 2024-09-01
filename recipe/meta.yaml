@@ -10,7 +10,7 @@ source:
 
 build:
   number: 2
-  skip: true  # [py<37 or win]
+  skip: true  # [py<37 or win or py>=312]
 
 requirements:
   build:
