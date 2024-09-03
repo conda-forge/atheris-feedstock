@@ -19,6 +19,7 @@ requirements:
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - binutils  # [unix]
     - clangxx
     - compiler-rt_{{ target_platform }}
@@ -26,6 +27,7 @@ requirements:
     - pip
     - pybind11 >=2.5.0
     - python
+    - setuptools
   run:
     - python
 
