@@ -12,7 +12,10 @@ source:
 
 build:
   number: 2
-  skip: true  # [win or py>=312]
+  skip: true  # [win]
+  # Python 3.12 not yet supported
+  # https://github.com/google/atheris/issues/82
+  skip: true  # [py>=312]
 
 requirements:
   build:
