@@ -1,0 +1,30 @@
+From 154e9a1c53c1a824a5aed5bdffe2c00c494c298c Mon Sep 17 00:00:00 2001
+From: Tobias Fischer <info@tobiasfischer.info>
+Date: Tue, 3 Sep 2024 07:45:26 +1000
+Subject: [PATCH] Fix compilation on newer compilers
+
+src/native/counters.cc:26:6: error: variable or field '__sanitizer_cov_8bit_counters_init' declared void
+   26 | void __sanitizer_cov_8bit_counters_init(uint8_t* start, uint8_t* stop);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/native/counters.cc:26:41: error: 'uint8_t' was not declared in this scope
+   26 | void __sanitizer_cov_8bit_counters_init(uint8_t* start, uint8_t* stop);
+      |                                         ^~~~~~~
+src/native/counters.cc:24:1: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+   23 | #include "macros.h"
+  +++ |+#include <cstdint>
+---
+ src/native/counters.cc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/native/counters.cc b/src/native/counters.cc
+index 234fec60..ef70734a 100644
+--- a/src/native/counters.cc
++++ b/src/native/counters.cc
+@@ -19,6 +19,7 @@
+ #include <sys/mman.h>
+ 
+ #include <iostream>
++#include <cstdint>
+ 
+ #include "macros.h"
+ 

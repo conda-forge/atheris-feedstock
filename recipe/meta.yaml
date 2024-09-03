@@ -7,10 +7,15 @@ package:
 source:
   url: https://pypi.io/packages/source/a/atheris/atheris-{{ version }}.tar.gz
   sha256: d06fdfe077d8188c5acdccb8d4cbb34a3fc2d6f84dbb7b807f523cc5f6e9b8a4
+  patches:
+    - 0000-fix-stdlib-include.patch
 
 build:
-  number: 1
-  skip: true  # [py<37 or win]
+  number: 2
+  skip: true  # [win]
+  # Python 3.12 not yet supported
+  # https://github.com/google/atheris/issues/82
+  skip: true  # [py>=312]
 
 requirements:
   build:
@@ -19,6 +24,7 @@ requirements:
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - binutils  # [unix]
     - clangxx
     - compiler-rt_{{ target_platform }}
@@ -26,6 +32,7 @@ requirements:
     - pip
     - pybind11 >=2.5.0
     - python
+    - setuptools
   run:
     - python
 
