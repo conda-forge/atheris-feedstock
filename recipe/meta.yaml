@@ -9,7 +9,7 @@ source:
   sha256: d06fdfe077d8188c5acdccb8d4cbb34a3fc2d6f84dbb7b807f523cc5f6e9b8a4
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py<37 or win]
 
 requirements:
@@ -18,6 +18,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - binutils  # [unix]
     - clangxx
