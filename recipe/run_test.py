@@ -13,12 +13,13 @@ proc = Popen(
     [sys.executable, "fuzzing_example.py"],
     cwd="example_fuzzers",
     stdout=PIPE,
-    stderr=PIPE
+    stderr=PIPE,
+    encoding="utf-8"
 )
 
 proc.wait()
 
-output = "".join([s.read().decode("utf-8") for s in [proc.stderr, proc.stdout]])
+output = "".join([s.read() if s else "..." for s in [proc.stderr, proc.stdout]])
 
 assert EXPECTED_ERROR in output, \
     f"{EXPECTED_ERROR} not found in: {output}"
