@@ -12,7 +12,7 @@ source:
   sha256: 1f0929c7bc3040f3fe4102e557718734190cf2d7718bbb8e3ce6d3eb56ef5bb3
 
 build:
-  number: 0
+  number: 1
   skip: not (unix and match(python, ">=3.11"))
 
 requirements:
@@ -46,7 +46,8 @@ tests:
         - example_fuzzers/fuzzing_example.py
         - example_fuzzers/example_library.py
     requirements:
-      run: pip
+      run:
+        - pip
     script:
       file: run_test.py
 
